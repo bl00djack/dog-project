@@ -13913,7 +13913,9 @@ $$</p>
 <p><img src="images/sample_cnn.png" alt="Sample CNN"></p>
 <p><strong>Question 4:</strong> Outline the steps you took to get to your final CNN architecture and your reasoning at each step.  If you chose to use the hinted architecture above, describe why you think that CNN architecture should work well for the image classification task.</p>
 <p><strong>Answer:</strong></p>
-<p>Multiple layers were added to extract the features from the images. In each conv layer, the filters were halfed. There were max pooling layers between them. A softmax function was used in the Dense layer since it's the best for classification.</p>
+<p>I chose a Convolutional layer of 16 filters with a 2,2 window so that images could be examined in a compacted way to handle the initial input of the Neural Network. I also chose the activation function relu. I followed this layer with a max pooling layer of 2,2.</p>
+<p>Next convolutional layer includes 32 filters as this allows for the network to start looking at more detail to classify the dog breed successfully. The kernel_size remained the same, as well as the activation function.</p>
+<p>The next layer includes 64 filters followed by Global Average pooling layer that would then be fed into the fully connected layer. The output layer has a softmax activation function which allows it maintain the probability distribution of all 133 species in between numbers 0,1.</p>
 
 </div>
 </div>
@@ -14882,7 +14884,10 @@ Epoch 20/20
 <h3 id="(IMPLEMENTATION)-Test-Your-Algorithm-on-Sample-Images!">(IMPLEMENTATION) Test Your Algorithm on Sample Images!<a class="anchor-link" href="#(IMPLEMENTATION)-Test-Your-Algorithm-on-Sample-Images!">&#182;</a></h3><p>Test your algorithm at least six images on your computer.  Feel free to use any images you like.  Use at least two human and two dog images.</p>
 <p><strong>Question 6:</strong> Is the output better than you expected :) ?  Or worse :( ?  Provide at least three possible points of improvement for your algorithm.</p>
 <p><strong>Answer:</strong></p>
-<p>There needs to be some improvement in the face_detector and dog_detector. And also training with augmented images will help improve my model.</p>
+<p>I expected the model to not perform well on images that are slightly rotated since I didn't train with augmented images. It was surprising that in the picture with American Eskimo, it detected the dog and was able to classify it correctly. In the two pictures with the cat, the model classified it completely wrong both times. The points of improvement:</p>
+<p>-There needs to be some improvement in the face_detector and dog_detector</p>
+<p>-Training with augmented images</p>
+<p>-Add dropout layer or regularization in order to reduce overfitting</p>
 
 </div>
 </div>
